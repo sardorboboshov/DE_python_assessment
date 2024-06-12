@@ -22,7 +22,8 @@ This document outlines the decisions made during the feature engineering process
 ## 2. Feature: `disb_bank_loan_wo_tbc`
 
 - **Technical Meaning of 'No Claims'**:
-  - **Definition**: There is no single `contract_date` which is non-null.
+  - **Definition**: There is no single row where `contract_date` which is non-null
+  and `bank` not in ` ['LIZ', 'LOM', 'MKO', 'SUG', null]`.
 
 - **Technical Meaning of 'No Loans'**:
   - **Definition**: There are valid claims, but the sum of `loan_summa` is `0`.
@@ -30,7 +31,7 @@ This document outlines the decisions made during the feature engineering process
 ## 3. Feature: `day_sinlastloan`
 
 - **Technical Meaning of 'No Claims'**:
-  - **Definition**: There is no single `contract_date` which is non-null (consistent with the previous feature).
+  - **Definition**: There are no single row where `contract_date` and `summa` which are non-null 
 
 - **Technical Meaning of 'No Loans'**:
   - **Definition**: There are valid claims, but the sum of `summa` is `0`.
